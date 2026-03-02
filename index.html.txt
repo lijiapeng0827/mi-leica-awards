@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>小米 × 徕卡 影像大赛｜获奖作品</title>
+  <style>
+    :root{
+      --bg:#0b0c10;
+      --card:#12131a;
+      --muted:#a7adbb;
+      --text:#f4f6fb;
+      --accent:#ff3b30; /* Leica red vibe */
+      --accent2:#ffcc00; /* Xiaomi-ish gold */
+      --ring: rgba(255, 59, 48, .35);
+      --shadow: 0 14px 40px rgba(0,0,0,.45);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 15% 10%, rgba(255,59,48,.18), transparent 60%),
+        radial-gradient(900px 500px at 85% 25%, rgba(255,204,0,.12), transparent 60%),
+        radial-gradient(1200px 700px at 45% 110%, rgba(126,231,135,.06), transparent 60%),
+        var(--bg);
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:1100px; margin:0 auto; padding:28px 18px 60px}
+
+    /* Top bar */
+    .top{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding:18px 18px; border:1px solid rgba(255,255,255,.08);
+      border-radius:18px; background:rgba(18,19,26,.55);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+    }
+    .brand{display:flex; align-items:center; gap:12px; min-width:260px}
+    .logo{
+      width:40px; height:40px; border-radius:12px;
+      background: linear-gradient(135deg, rgba(255,204,0,.95), rgba(255,59,48,.95));
+      display:grid; place-items:center; font-weight:800; color:#1b1c22;
+    }
+    .brand h1{font-size:16px; margin:0; letter-spacing:.2px}
+    .brand p{margin:2px 0 0; font-size:12px; color:var(--muted)}
+
+    .actions{display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+    .pill{
+      padding:10px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      font-size:12px;
+    }
+    .btn{
+      cursor:pointer;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: linear-gradient(135deg, rgba(255,59,48,.95), rgba(255,204,0,.75));
+      color:#14151a;
+      font-weight:800;
+      box-shadow: 0 10px 24px rgba(255,59,48,.18);
+    }
+    .btn:focus{outline:none; box-shadow: 0 0 0 4px var(--ring)}
+
+    /* Hero */
+    .hero{margin-top:18px; display:grid; grid-template-columns: 1.1fr .9fr; gap:14px}
+    @media (max-width: 900px){ .hero{grid-template-columns:1fr} }
+
+    .panel{
+      border-radius:22px;
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(18,19,26,.55);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .heroLeft{padding:22px 22px 18px}
+    .kicker{
+      display:inline-flex; align-items:center; gap:8px;
+      font-size:12px; color:var(--muted);
+      padding:8px 10px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+    }
+    .dot{width:8px; height:8px; border-radius:50%; background:var(--accent)}
+    .title{
+      margin:12px 0 10px; line-height:1.15;
+      font-size:32px; letter-spacing:.2px;
+    }
+    .sub{margin:0; color:var(--muted); font-size:14px; line-height:1.7}
+    .metaRow{margin-top:14px; display:flex; gap:10px; flex-wrap:wrap}
+    .tag{font-size:12px; color:var(--text); opacity:.92; border:1px solid rgba(255,255,255,.12);
+      padding:8px 10px; border-radius:999px; background: rgba(255,255,255,.04)
+    }
+
+    .heroRight{display:flex; flex-direction:column}
+    .stats{display:grid; grid-template-columns:repeat(3, 1fr); gap:10px; padding:14px}
+    .stat{
+      border-radius:16px; padding:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+    }
+    .stat .n{font-size:18px; font-weight:900}
+    .stat .t{font-size:12px; color:var(--muted); margin-top:4px}
+
+    /* Gallery */
+    .section{margin-top:18px}
+    .sectionHead{display:flex; align-items:flex-end; justify-content:space-between; gap:12px}
+    .sectionHead h2{margin:0; font-size:16px}
+    .sectionHead p{margin:0; font-size:12px; color:var(--muted)}
+
+    .grid{margin-top:12px; display:grid; grid-template-columns: repeat(12, 1fr); gap:14px}
+
+    .award{
+      grid-column: span 4;
+      border-radius:22px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(18,19,26,.55);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      min-height: 380px;
+    }
+    @media (max-width: 900px){ .award{grid-column: span 6} }
+    @media (max-width: 640px){ .award{grid-column: span 12} }
+
+    .award .cover{position:relative; aspect-ratio: 4 / 3; overflow:hidden; background:#0f1016}
+    .award img{width:100%; height:100%; object-fit:cover; transform: scale(1.02)}
+    .badge{
+      position:absolute; left:14px; top:14px;
+      padding:8px 10px; border-radius:999px;
+      background: rgba(0,0,0,.55);
+      border:1px solid rgba(255,255,255,.14);
+      font-size:12px;
+      display:inline-flex; align-items:center; gap:8px;
+      backdrop-filter: blur(8px);
+    }
+    .medal{width:10px; height:10px; border-radius:50%}
+    .gold{background: linear-gradient(135deg, #ffd34d, #ffb700)}
+    .silver{background: linear-gradient(135deg, #d9e2ef, #9fb2c7)}
+    .bronze{background: linear-gradient(135deg, #ffb07a, #c06a2f)}
+
+    .award .body{padding:14px 16px 16px; display:flex; flex-direction:column; gap:10px; flex:1}
+    .award .name{margin:0; font-size:14px; font-weight:900; letter-spacing:.2px}
+    .award .desc{margin:0; color:var(--muted); font-size:12px; line-height:1.65}
+
+    .award .row{display:flex; gap:10px; flex-wrap:wrap; margin-top:auto}
+    .mini{
+      font-size:12px; color:var(--muted);
+      border:1px solid rgba(255,255,255,.12);
+      padding:8px 10px; border-radius:12px;
+      background: rgba(255,255,255,.03);
+    }
+
+    /* Modal */
+    dialog{
+      width:min(920px, calc(100vw - 28px));
+      border:none;
+      border-radius:22px;
+      padding:0;
+      overflow:hidden;
+      background: rgba(12,13,17,.92);
+      color:var(--text);
+      box-shadow: 0 22px 80px rgba(0,0,0,.65);
+    }
+    dialog::backdrop{background: rgba(0,0,0,.66)}
+    .modal{
+      display:grid; grid-template-columns: 1.15fr .85fr;
+      min-height: 520px;
+    }
+    @media (max-width: 900px){ .modal{grid-template-columns:1fr} }
+    .modal .mImg{background:#0d0e12; display:grid; place-items:center}
+    .modal .mImg img{width:100%; height:100%; object-fit:contain; background:#0d0e12}
+    .modal .mSide{padding:18px 18px 16px; display:flex; flex-direction:column; gap:10px}
+    .modal h3{margin:0; font-size:16px}
+    .modal .mP{margin:0; color:var(--muted); font-size:13px; line-height:1.7}
+    .modal .mCloseRow{margin-top:auto; display:flex; gap:10px; justify-content:flex-end; flex-wrap:wrap}
+    .ghost{
+      cursor:pointer;
+      padding:10px 14px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      font-weight:700;
+    }
+
+    footer{margin-top:18px; color:var(--muted); font-size:12px; line-height:1.8; opacity:.9}
+    .fine{display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:space-between}
+    .fine span{border:1px solid rgba(255,255,255,.10); padding:8px 10px; border-radius:999px; background: rgba(255,255,255,.03)}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header class="top">
+      <div class="brand">
+        <div class="logo">Mi</div>
+        <div>
+          <h1>小米 × 徕卡 影像大赛</h1>
+          <p>获奖作品展示（示例页面） · 以街头与纪实为主题</p>
+        </div>
+      </div>
+      <div class="actions">
+        <span class="pill">开奖日期：2026-03-05</span>
+        <span class="pill">赛季：雨季·街头纪实</span>
+        <button class="btn" id="openThird">查看三等奖</button>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="panel heroLeft">
+        <div class="kicker"><span class="dot"></span> Leica-look · 高反差黑白 · 雨幕叙事</div>
+        <h2 class="title">用一张照片，讲清楚一个瞬间</h2>
+        <p class="sub">本页面用于展示比赛获奖作品（演示网站）。你提供的照片已作为<strong>三等奖</strong>收录；点击下方卡片即可全屏预览。</p>
+        <div class="metaRow">
+          <span class="tag">评审维度：叙事</span>
+          <span class="tag">评审维度：构图</span>
+          <span class="tag">评审维度：光影</span>
+          <span class="tag">评审维度：情绪</span>
+        </div>
+      </div>
+
+      <div class="panel heroRight">
+        <div class="stats">
+          <div class="stat"><div class="n">3</div><div class="t">奖项等级</div></div>
+          <div class="stat"><div class="n">1</div><div class="t">三等奖作品</div></div>
+          <div class="stat"><div class="n">BW</div><div class="t">黑白组</div></div>
+        </div>
+        <div style="padding:0 14px 14px;">
+          <div class="stat" style="border-radius:18px;">
+            <div class="t">一句话评语</div>
+            <div style="margin-top:8px; font-size:13px; line-height:1.7; color:var(--text); opacity:.92;">
+              雨水把城市按下静音键，伞面与车影却把节奏点亮：前景留白让脚步更响，纪实感在反光里完成。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="sectionHead">
+        <div>
+          <h2>获奖作品</h2>
+          <p>点击卡片打开大图与作品信息</p>
+        </div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;">
+          <span class="pill">组别：街头纪实</span>
+          <span class="pill">主题：雨</span>
+        </div>
+      </div>
+
+      <div class="grid">
+        <!-- 一等奖（占位） -->
+        <article class="award" data-award="一等奖" data-title="《光的回声》" data-author="获奖者 A" data-note="占位示例：你可以替换成一等奖图片与信息。">
+          <div class="cover">
+            <div class="badge"><span class="medal gold"></span> 一等奖</div>
+            <img alt="一等奖占位" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='900'%3E%3Cdefs%3E%3CradialGradient id='g' cx='30%25' cy='25%25'%3E%3Cstop offset='0%25' stop-color='%23ffcc00' stop-opacity='0.75'/%3E%3Cstop offset='55%25' stop-color='%23ff3b30' stop-opacity='0.18'/%3E%3Cstop offset='100%25' stop-color='%230b0c10'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23g)'/%3E%3Ctext x='50%25' y='52%25' dominant-baseline='middle' text-anchor='middle' fill='%23f4f6fb' font-size='44' font-family='Arial'%3E一等奖作品占位%3C/text%3E%3C/svg%3E" />
+          </div>
+          <div class="body">
+            <h3 class="name">《光的回声》</h3>
+            <p class="desc">占位示例：强调主题一致性、节奏控制与影调层次。你之后给我一等奖作品，我可以直接替换。</p>
+            <div class="row">
+              <span class="mini">作者：获奖者 A</span>
+              <span class="mini">镜头：35mm 等效</span>
+              <span class="mini">风格：高反差</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 二等奖（占位） -->
+        <article class="award" data-award="二等奖" data-title="《街角的风》" data-author="获奖者 B" data-note="占位示例：你可以替换成二等奖图片与信息。">
+          <div class="cover">
+            <div class="badge"><span class="medal silver"></span> 二等奖</div>
+            <img alt="二等奖占位" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='900'%3E%3Cdefs%3E%3CradialGradient id='g' cx='75%25' cy='35%25'%3E%3Cstop offset='0%25' stop-color='%23d9e2ef' stop-opacity='0.65'/%3E%3Cstop offset='55%25' stop-color='%239fb2c7' stop-opacity='0.18'/%3E%3Cstop offset='100%25' stop-color='%230b0c10'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23g)'/%3E%3Ctext x='50%25' y='52%25' dominant-baseline='middle' text-anchor='middle' fill='%23f4f6fb' font-size='44' font-family='Arial'%3E二等奖作品占位%3C/text%3E%3C/svg%3E" />
+          </div>
+          <div class="body">
+            <h3 class="name">《街角的风》</h3>
+            <p class="desc">占位示例：突出空间关系与人物动线。你之后给我二等奖作品，我可以直接替换。</p>
+            <div class="row">
+              <span class="mini">作者：获奖者 B</span>
+              <span class="mini">镜头：50mm 等效</span>
+              <span class="mini">风格：胶片感</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 三等奖（你的图片） -->
+        <article class="award" id="thirdCard" data-award="三等奖" data-title="《雨幕里的通勤》" data-author="logic" data-note="评审要点：雨水反光形成二次光源；伞与车把人物关系切成三层；底部留白给城市情绪留出呼吸。">
+          <div class="cover">
+            <div class="badge"><span class="medal bronze"></span> 三等奖</div>
+            <img id="thirdThumb" alt="三等奖作品" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDAwNDg0MDQ0PDA0PFRERExMTEhUVFRgZGBgYGBgYGBgY/2wBDAQMEBAUEBQkFBQkYDQ0NDhgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgY/3QAEAAP/2gAMAwEAAhEDEQA/AA==" />
+          </div>
+          <div class="body">
+            <h3 class="name">《雨幕里的通勤》</h3>
+            <p class="desc">雨天的街头把人群节奏压得更低：伞面是移动的屋檐，反光是另一条道路，留白让视线有地方停靠。</p>
+            <div class="row">
+              <span class="mini">作者：logic</span>
+              <span class="mini">组别：黑白纪实</span>
+              <span class="mini">奖项：三等奖</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <footer class="panel" style="margin-top:18px; padding:14px 16px;">
+      <div class="fine">
+        <span>提示：这是一份静态页面示例，可直接保存为 index.html 打开</span>
+        <span>替换一等奖/二等奖：把对应卡片的 img 换成你的图片即可</span>
+      </div>
+    </footer>
+  </div>
+
+  <dialog id="dlg">
+    <div class="modal">
+      <div class="mImg"><img id="dlgImg" alt="大图预览" /></div>
+      <div class="mSide">
+        <div class="badge" id="dlgBadge" style="position:static; width:fit-content;">
+          <span class="medal bronze" id="dlgMedal"></span>
+          <span id="dlgAward">三等奖</span>
+        </div>
+        <h3 id="dlgTitle">《雨幕里的通勤》</h3>
+        <p class="mP" id="dlgAuthor">作者：logic</p>
+        <p class="mP" id="dlgNote">评审要点：雨水反光形成二次光源；伞与车把人物关系切成三层；底部留白给城市情绪留出呼吸。</p>
+        <div class="mCloseRow">
+          <button class="ghost" id="downloadBtn" title="保存为图片（仅提示，不自动下载）">提示：右键图片另存</button>
+          <button class="ghost" id="closeBtn">关闭</button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    // 说明：为保证页面完全自包含，三等奖图片以 Base64 嵌入。
+    // 你如果要换图片：把 thirdThumb 的 src 换成你新图片的 dataURL 或普通链接。
+
+    const dlg = document.getElementById('dlg');
+    const openThird = document.getElementById('openThird');
+
+    function medalClass(award){
+      if(award.includes('一')) return 'gold';
+      if(award.includes('二')) return 'silver';
+      return 'bronze';
+    }
+
+    function openFromCard(card){
+      const award = card.dataset.award || '获奖作品';
+      const title = card.dataset.title || '';
+      const author = card.dataset.author || '';
+      const note = card.dataset.note || '';
+      const img = card.querySelector('img');
+
+      document.getElementById('dlgAward').textContent = award;
+      document.getElementById('dlgTitle').textContent = title;
+      document.getElementById('dlgAuthor').textContent = `作者：${author}`;
+      document.getElementById('dlgNote').textContent = note;
+
+      const medal = document.getElementById('dlgMedal');
+      medal.className = 'medal ' + medalClass(award);
+      document.getElementById('dlgImg').src = img?.src || '';
+
+      dlg.showModal();
+    }
+
+    document.querySelectorAll('.award').forEach(card => {
+      card.addEventListener('click', () => openFromCard(card));
+      card.style.cursor = 'pointer';
+    });
+
+    openThird.addEventListener('click', () => {
+      openFromCard(document.getElementById('thirdCard'));
+    });
+
+    document.getElementById('closeBtn').addEventListener('click', () => dlg.close());
+    dlg.addEventListener('click', (e) => {
+      // 点击遮罩关闭
+      const rect = dlg.getBoundingClientRect();
+      const inDialog = e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom;
+      if(!inDialog) dlg.close();
+    });
+
+    document.getElementById('downloadBtn').addEventListener('click', () => {
+      alert('在电脑上：右键大图 → 另存为；在手机上：长按图片 → 保存。');
+    });
+  </script>
+</body>
+</html>
